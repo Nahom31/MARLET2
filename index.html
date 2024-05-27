@@ -144,8 +144,8 @@ function hideAndShow() {
                 <option value="Mitsubishi">Mitsubishi</option>
                 <option value="Nissan">Nissan</option>
                 <option value="Peugeot">Peugeot</option>
-                <option value="Suzuki">Suzuki</option>
-                <option value="Toyota" selected>Toyota</option>
+                <option value="Suzuki"selected>Suzuki</option>
+                <option value="Toyota">Toyota</option>
                 <option value="Volkswagen">Volkswagen</option>
                 <option value="Volvo">Volvo</option>
 
@@ -163,23 +163,7 @@ function hideAndShow() {
             <label for="list2" id="lablist2" >የመኪናዎን ሞዴል ይምረጡ:</label>
             <select id="list2" name="list2">
                 <!-- Default options -->
-                <option value="Avalon">Avalon</option>
-                <option value="Camry">Camry</option>
-                <option value="Corolla">Corolla</option>
-                <option value="Prius">Prius</option>
-                <option value="Yaris">Yaris</option>
-                <option value="86">86</option>
-                <option value="Sienna">Sienna</option>
-                <option value="Crossovers & SUVs">Crossovers & SUVs</option>
-                <option value="Undefined">Undefined</option>
-                <option value="C-HR">C-HR</option>
-                <option value="RAV4">RAV4</option>
-                <option value="Highlander">Highlander</option>
-                <option value="Toyota Highlander">Toyota Highlander</option>
-                <option value="4Runner">4Runner</option>
-                <option value="Trucks">Trucks</option>
-                <option value="Tacoma">Tacoma</option>
-                <option value="Tundra">Tundra</option>
+                
 
             </select>
         </div>
@@ -208,6 +192,33 @@ function hideAndShow() {
         <div id="imageContainer">
             <img id="uploadedImage" src="#" alt="Uploaded Image">
         </div>
+<script>
+document.getElementById("list1").addEventListener("change", function() {
+  var list1 = document.getElementById("list1");
+  var list2 = document.getElementById("list2");
+  var selectedOption = list1.options[list1.selectedIndex].value;
+  
+  // Clear existing options
+  list2.innerHTML = '';
+  
+  // Insert options based on selected car brand
+  if (selectedOption === "Toyota") {
+    var options = ["Avalon", "Camry", "Corolla",  "Prius",  "Yaris", "Maruti 86",  "Sienna",  "Crossovers & SUVs",  "Undefined",  "C-HR",  "RAV4",  "Highlander",  "Toyota Highlander",  "4Runner",  "Trucks",  "Tacoma",  "Tundra"];
+  } else if (selectedOption === "Suzuki") {
+    var options = ["Suzuki Swift", "Suzuki Jimny", "Maruti Suzuki Dzire", "Suzuki Vitara", "Maruti Suzuki Baleno", "Maruti Suzuki Celerio", "Maruti Suzuki Ignis", "Suzuki Wagon R", "Maruti Suzuki Brezza", "Maruti Suzuki Ertiga", "Maruti Suzuki Ciaz", "Suzuki Alto", "Suzuki Kizashi", "Maruti Suzuki Alto K10", "Maruti Suzuki Fronx", "Maruti Suzuki XL6", "Maruti Suzuki Eeco", "Suzuki Carry", "Apv", "Maruti 800", "Suzuki SX4", "Suzuki XL7", "Maruti eVX", "Maruti Suzuki Invicto"];
+  } else if (selectedOption === "Mitsubishi") {
+    var options = [ "Outlander",  "Pajero Sport", "Mirage", " Eclipse Cross",  "Lancer",  "Xpander",  "ASX",  "Outlander PHEV",  "Challenger", "Mirage variants",  "Lancer Evolution",  "Montero",  "Attrage",  "Triton", "Galant", "L300", "Chariot",  "Delica",  "Eclipse",  "Endeavor", "Mirage 2024", "Pajero", "Space Star"];
+  }
+  
+  // Add options to list2
+  options.forEach(function(option) {
+    var opt = document.createElement('option');
+    opt.appendChild(document.createTextNode(option));
+    opt.value = option;
+    list2.appendChild(opt);
+  });
+});
+</script>
   <script src="script.js"></script>
         <script>
     document.getElementById('imageInput').addEventListener('change', function() {
@@ -224,6 +235,7 @@ function hideAndShow() {
 });
 
 </script>
+
         <div>
             <input type="submit"  id="labsu" value="መላክያ">
         </div>
